@@ -22,7 +22,7 @@ Previous approaches to this task relied on standard CNNs (ResNet/VGG) combined w
 To solve the semantic gap, this project implements **DINOv2** (Meta's state-of-the-art self-supervised Vision Transformer).
 Unlike standard CNNs that look for local textures, DINOv2 naturally learns the global semantic structure of images across 142 million parameters without needing bounding boxes or manual labels. It inherently understands concepts like "posture," "depth," and "facial structure" regardless of the artistic style.
 
-### 📊 Evaluation Metrics & Ablation Study
+### Evaluation Metrics & Ablation Study
 
 To prove the efficacy of the semantic approach, the evaluation pipeline compares traditional pixel metrics against High-Dimensional Cosine Similarity.
 
@@ -45,7 +45,7 @@ _(Notice how Match 2 and Match 4 feature entirely different color palettes and e
 
 ## **Conclusion:** Notice how exceptionally low the SSIM scores are (~0.22) despite the visual matches being remarkably accurate. Semantic Cosine Similarity extracted via Vision Transformers vastly outperforms pixel-wise metrics for retrieving fine art.
 
-## 💻 Implementation Guide
+## Implementation Guide
 
 ### 1. Setup the Environment
 
@@ -54,6 +54,7 @@ Ensure you have Python 3.8+ installed, then install the dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+
 ### 2. Run the Similarity Search Pipeline
 
 The main pipeline will automatically pick a query image from the gallery, find the Top K semantic matches using DINOv2, generate a visual grid, and calculate the comparative evaluation metrics.
@@ -61,12 +62,13 @@ The main pipeline will automatically pick a query image from the gallery, find t
 ```bash
     python main.py --top_k 5
 ```
-*(Note: To query a specific image, use `--query data/images/your_image.jpg`)*
+
+_(Note: To query a specific image, use `--query data/images/your_image.jpg`)_
 
 ### 3. Repository Structure
 
-* `models/extractor.py`: DINOv2 feature extraction pipeline.
-* `utils/data_loader.py`: Parses NGA metadata to isolate paintings.
-* `utils/download_img.py`: Asynchronous IIIF API downloader for high-speed dynamic image cropping.
-* `utils/retrieve.py`: Cosine similarity engine.
-* `utils/evaluation.py`: Comparative metric calculator (SSIM vs Cosine).
+- `models/extractor.py`: DINOv2 feature extraction pipeline.
+- `utils/data_loader.py`: Parses NGA metadata to isolate paintings.
+- `utils/download_img.py`: Asynchronous IIIF API downloader for high-speed dynamic image cropping.
+- `utils/retrieve.py`: Cosine similarity engine.
+- `utils/evaluation.py`: Comparative metric calculator (SSIM vs Cosine).
