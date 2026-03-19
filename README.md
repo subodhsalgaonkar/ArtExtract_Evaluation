@@ -54,3 +54,19 @@ Ensure you have Python 3.8+ installed, then install the dependencies:
 ```bash
 pip install -r requirements.txt
 ```
+### 2. Run the Similarity Search Pipeline
+
+The main pipeline will automatically pick a query image from the gallery, find the Top K semantic matches using DINOv2, generate a visual grid, and calculate the comparative evaluation metrics.
+
+```bash
+    python main.py --top_k 5
+```
+*(Note: To query a specific image, use `--query data/images/your_image.jpg`)*
+
+### 3. Repository Structure
+
+* `models/extractor.py`: DINOv2 feature extraction pipeline.
+* `utils/data_loader.py`: Parses NGA metadata to isolate paintings.
+* `utils/download_img.py`: Asynchronous IIIF API downloader for high-speed dynamic image cropping.
+* `utils/retrieve.py`: Cosine similarity engine.
+* `utils/evaluation.py`: Comparative metric calculator (SSIM vs Cosine).
