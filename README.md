@@ -117,7 +117,7 @@ python evaluate.py
 
 ## Task 2: Painting Similarity (National Gallery of Art)
 
-### 📄 Abstract
+### Abstract
 
 With the rapid evolution of computer vision, AI models have demonstrated remarkable proficiency in image classification. However, applying these models to fine art presents a unique challenge: art similarity relies on geometric posture, semantic subject matter, and stylistic composition rather than literal pixel mapping. This task explores image similarity by conducting an ablation study, contrasting a highly optimized traditional Convolutional Neural Network (ResNet50) against a modern Self-Supervised Vision Transformer (DINOv2) to evaluate their efficacy in retrieving semantically similar paintings.
 
