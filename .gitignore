@@ -1,1 +1,6 @@
 **/data/
+
+Task1_Classification/checkpoints/*.pth
+
+__pycache__/
+*.pyc
